@@ -6,145 +6,83 @@ Plug 'wakatime/vim-wakatime'
 Plug 'zivyangll/git-blame.vim'
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
-
-
+Plug 'dracula/vim'
 Plug 'mattn/emmet-vim'
 Plug 'motemen/git-vim'
 Plug 'kien/tabman.vim'
-
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'fisadev/fisa-vim-colorscheme'
-
-
 Plug 'Townk/vim-autoclose'
-
 Plug 'jeetsukumaran/vim-indentwise'
 Plug 'davidhalter/jedi-vim'
 Plug 'Shougo/neocomplcache.vim'
-
 Plug 'vim-scripts/AutoComplPop'
-
 Plug 'tomtom/tlib_vim'
 Plug 'honza/vim-snippets'
-
-
-
 Plug 'nvie/vim-flake8'
-
-
-" Drag visual blocks arround
 Plug 'fisadev/dragvisuals.vim'
-
-" Window chooser
 Plug 't9md/vim-choosewin'
-
-" Python and other languages code checker
 Plug 'scrooloose/syntastic'
-
-
-" Paint css colors with the real color
 Plug 'lilydjwg/colorizer'
-
-
-
-" Search results counter
 Plug 'vim-scripts/IndexedSearch'
-
-" XML/HTML tags navigation
 Plug 'vim-scripts/matchit.zip'
-
-" Gvim colorscheme
 Plug 'vim-scripts/Wombat'
-
-" Yank history navigation
 Plug 'vim-scripts/YankRing.vim'
-
 Plug 'tpope/vim-commentary'
-
-
 Plug 'tpope/vim-fugitive'
-
-
 Plug 'vim-scripts/grep.vim'
 Plug 'vim-scripts/CSApprox'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'Raimondi/delimitMate'
-
-
-
-
-
-
-
-
-"" Color
-Plug 'tomasr/molokai'
-
-
-" c
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 Plug 'ludwig/split-manpage.vim'
-
-
-" html
-"" HTML Bundle
 Plug 'hail2u/vim-css3-syntax'
 Plug 'gorodinskiy/vim-coloresque'
 Plug 'tpope/vim-haml'
-
-
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leshill/vim-json'
 Plug 'w0rp/ale'
-
-
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
-
-
-
 Plug 'tpope/vim-markdown'
 Plug 'vim-scripts/SyntaxRange'
 
-
-
-
-
 call plug#end()
 
-nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 
 "" Encoding
-set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 set bomb
 set binary
+set shiftwidth=2
+set tabstop=2
+set softtabstop=2
+set expandtab
+set autoindent
+
 set ttyfast
 
 set regexpengine=1
 syntax enable
-
-colorscheme molokai
+syntax on
+colorscheme dracula
+color dracula
 
 let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 let g:ale_completion_enabled = 1
 let g:ale_lint_on_save = 1
 let g:ale_lint_on_text_changed = 0
-autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=0 expandtab
-set autoindent
-
 
 "" Searching
 " SEARCH
 " Highlight search term. Use :nohl to redraw screen and disable highlight
 set hlsearch
-
 set incsearch
-" Use case insensitive search, except when using capital letters
 
+" Use case insensitive search, except when using capital letters
 set ignorecase
 set smartcase
 
@@ -153,16 +91,8 @@ let g:ag_working_path_mode="r"
 
 
 "" NERDTree configuration
-
 nnoremap <silent> <F2> :NERDTreeFind<CR>
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
-
-
-"" Tabs
-nnoremap <Tab> gt
-nnoremap <S-Tab> gT
-nnoremap <silent> <S-t> :tabnew<CR>
-
 
 " no vi-compatible
 set nocompatible
@@ -170,17 +100,6 @@ set nocompatible
 " allow plugins by file type (required for plugins!)
 filetype plugin on
 filetype indent on
-
-" tabs and spaces handling
-set expandtab
-" set tabstop=4
-set softtabstop=4
-set shiftwidth=4
-
-" tab length exceptions on some file types
-autocmd FileType html setlocal shiftwidth=4 tabstop=4 softtabstop=4
-autocmd FileType htmldjango setlocal shiftwidth=4 tabstop=4 softtabstop=4
-autocmd FileType javascript setlocal shiftwidth=4 tabstop=4 softtabstop=4
 
 " MOVING BETWEEN FILES
 " Set 'hidden' if you want to open a new file inside the same buffer without the
@@ -192,6 +111,7 @@ set ls=2
 
 " incremental search
 set incsearch
+
 " highlighted search results
 set hlsearch
 
@@ -235,14 +155,14 @@ set completeopt-=preview
 " use 256 colors when possible
 if (&term =~? 'mlterm\|xterm\|xterm-256\|screen-256') || has('nvim')
 	let &t_Co = 256
-    colorscheme  molokai
+    colorscheme  dracula
 else
-    colorscheme  molokai
+    colorscheme  dracula
 endif
 
 " colors for gvim
 if has('gui_running')
-    colorscheme  molokai
+    colorscheme  dracula
 endif
 
 " when scrolling, keep cursor 3 lines away from screen border
@@ -263,14 +183,11 @@ set noswapfile
 " Plugins settings and mappings
 " Edit them as you wish.
 
-" Tagbar ----------------------------- 
-
-" toggle tagbar display
-map <F4> :TagbarToggle<CR>
+" Tagbar -----------------------------
 " autofocus on tagbar open
 let g:tagbar_autofocus = 1
 
-" NERDTree ----------------------------- 
+" NERDTree -----------------------------
 
 " toggle nerdtree display
 map <F3> :NERDTreeToggle<CR>
@@ -282,26 +199,17 @@ nmap ,t :NERDTreeFind<CR>
 
 " CtrlP ------------------------------
 
-" file finder mapping
-let g:ctrlp_map = ',e'
-
 " tags (symbols) in current file finder mapping
 nmap ,g :CtrlPBufTag<CR>
 
 " tags (symbols) in all files finder mapping
 nmap ,G :CtrlPBufTagAll<CR>
-
 " general code finder in all files mapping
 nmap ,f :CtrlPLine<CR>
-
 " recent files finder mapping
 nmap ,m :CtrlPMRUFiles<CR>
-
-
 " commands finder mapping
 nmap ,c :CtrlPCmdPalette<CR>
-
-
 " to be able to call CtrlP with default search text
 function! CtrlPWithSearchText(search_text, ctrlp_command_end)
     execute ':CtrlP' . a:ctrlp_command_end
@@ -346,15 +254,11 @@ nmap  -  <Plug>(choosewin)
 " show big letters
 let g:choosewin_overlay_enable = 1
 
-
 " FONT
 set guifont=Monaco\ for\ Powerline:h12
-set antialias
-
 
 " ENCODING
 set encoding=utf-8
-
 " COMMAND LINE
 " Enhanced command line completion
 set wildmenu
@@ -366,25 +270,20 @@ set wildmode=list:longest
 " Vim will start searching as you type
 set incsearch
 
-
-
 " WRAP
 " Stop wrapping long lines
 set nowrap
-
 " AUTORELOAD
 " Automatically reload buffers when file changes
 set autoread
 
 " PLUGINS CONFIGURATIONS
-
 " CtrlP
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 
-" Syntastic
-nnoremap <leader>st :SyntasticToggleMode<cr>
-
 " NERDTree
 nnoremap <leader>ft :NERDTreeToggle<cr>
+
+
 
