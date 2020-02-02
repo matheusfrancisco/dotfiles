@@ -2,6 +2,7 @@ call plug#begin(expand('~/.vim/plugged'))
 
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
+Plug 'aserebryakov/vim-todo-lists'
 Plug 'wakatime/vim-wakatime'
 Plug 'zivyangll/git-blame.vim'
 Plug 'majutsushi/tagbar'
@@ -28,7 +29,6 @@ Plug 'lilydjwg/colorizer'
 Plug 'vim-scripts/IndexedSearch'
 Plug 'vim-scripts/matchit.zip'
 Plug 'vim-scripts/Wombat'
-Plug 'vim-scripts/YankRing.vim'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'vim-scripts/grep.vim'
@@ -44,9 +44,28 @@ Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 Plug 'leshill/vim-json'
 Plug 'w0rp/ale'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
 Plug 'tpope/vim-markdown'
 Plug 'vim-scripts/SyntaxRange'
+
+"Clojure plugin"
+
+Plug 'liuchengxu/vim-better-default'
+Plug 'easymotion/vim-easymotion'
+Plug 'guns/vim-sexp'
+Plug 'Shougo/deoplete.nvim'
+
+Plug 'tpope/vim-sexp-mappings-for-regular-people'
+Plug 'Olical/conjure', { 'tag': 'v2.0.0', 'do': 'bin/compile' }
+
+
+" typescript
+Plug 'leafgarland/typescript-vim'
+Plug 'HerringtonDarkholme/yats.vim'
+
+" lisp
+"" Lisp Bundle
+Plug 'vim-scripts/slimv.vim'
+
 
 call plug#end()
 
@@ -56,19 +75,40 @@ set fileencoding=utf-8
 set fileencodings=utf-8
 set bomb
 set binary
-set shiftwidth=2
-set tabstop=2
-set softtabstop=2
-set expandtab
-set autoindent
 
-set ttyfast
+
+"" Map leader to ,
+let mapleader=','
+
+"" Tabs. May be overridden by autocmd rules
+set tabstop=2
+set softtabstop=0
+set shiftwidth=2
+set expandtab
+
 
 set regexpengine=1
 syntax enable
 syntax on
 colorscheme dracula
 color dracula
+
+
+"" Searching
+""set hlsearch
+"set incsearch
+"set ignorecase
+"set smartcase
+
+" Clojre linters
+"
+set completeopt-=preview
+let g:ale_linters = {
+      \ 'clojure': ['clj-kondo', 'joker']
+      \}
+"End Clojure linters"
+"
+
 
 let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
@@ -284,6 +324,4 @@ let g:ctrlp_cmd = 'CtrlP'
 
 " NERDTree
 nnoremap <leader>ft :NERDTreeToggle<cr>
-
-
 
