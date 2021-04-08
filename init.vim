@@ -3,8 +3,6 @@ call plug#begin(expand('~/.vim/plugged'))
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'lervag/vimtex'
-Plug 'wakatime/vim-wakatime'
-Plug 'zivyangll/git-blame.vim'
 Plug 'majutsushi/tagbar'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dracula/vim'
