@@ -32,7 +32,6 @@ Plug 'bronson/vim-trailing-whitespace'
 Plug 'Raimondi/delimitMate'
 Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
 Plug 'tpope/vim-haml'
-
 Plug 'pangloss/vim-javascript'
 Plug 'mxw/vim-jsx'
 
