@@ -101,6 +101,7 @@ let g:vimtex_compiler_engine='lualatex'
 
 set regexpengine=1
 
+" Enable syntax
 syntax enable
 syntax on
 
