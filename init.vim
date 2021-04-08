@@ -1,5 +1,6 @@
 call plug#begin(expand('~/.vim/plugged'))
 
+
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'jeffkreeftmeijer/vim-numbertoggle'
 Plug 'lervag/vimtex'
